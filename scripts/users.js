@@ -8,7 +8,7 @@ displayTable();
 
 }
 function displayTable(){
-let table = document.getElementById("userTable");
+let table = document.querySelector("#userTableBody");
 
 fetch("http://jsonplaceholder.typicode.com/users")
 .then(response => response.json())
@@ -17,7 +17,7 @@ fetch("http://jsonplaceholder.typicode.com/users")
 
 for(let i=0; i<data.length; i++) {
 
-let row = table.insertRow(-1);
+let row = table.insertRow();
 
 let cell1 = row.insertCell(0);
 cell1.innerHTML = data[i].name
