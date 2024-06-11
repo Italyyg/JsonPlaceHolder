@@ -56,6 +56,10 @@ async function createAToDO (event){
         //turn the response in to something we can work with
         let newtoDO = await response.json();
 
+        let results = document.querySelector("#results");
+        results.innerHTML =`<p>You've Added a New ToDO!</p>`
+
+
         //put the comments in the console
         console.log(newtoDO)
 
