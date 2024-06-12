@@ -17,6 +17,9 @@ window.onload = () => {
     //after submitting form the data will then update 
     ToDoInfo.addEventListener("submit", updateTheToDO);
 
+    let cancelButton = document.querySelector("#cancelButton");
+
+
 }
 
 const updateTheToDO = async (event) => {
@@ -78,3 +81,4 @@ async function populateUpdateForm(event){
     
 
 }
+
