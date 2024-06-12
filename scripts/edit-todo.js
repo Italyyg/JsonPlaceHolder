@@ -10,14 +10,16 @@ window.onload = () => {
     let ToDoInfo = document.querySelector("#UpdateToDoForm");
 
 
-   //we will cause the submit of this form to run the function that will populate wanted data
-   chooseToDOtoUpdate.addEventListener("submit", populateUpdateForm);
+    //we will cause the submit of this form to run the function that will populate wanted data
+    chooseToDOtoUpdate.addEventListener("submit", populateUpdateForm);
 
 
     //after submitting form the data will then update 
     ToDoInfo.addEventListener("submit", updateTheToDO);
 
     let cancelButton = document.querySelector("#cancelButton");
+
+    cancelButton.addEventListener("click", cancelEdit);
 
 
 }
@@ -58,7 +60,7 @@ const updateTheToDO = async (event) => {
 
 }
 
-async function getSingletoDO (toDoID) {
+async function getSingletoDO(toDoID) {
 
     let response = await fetch("https://jsonplaceholder.typicode.com/todos/" + toDoID);
     let todo = await response.json();
@@ -67,7 +69,7 @@ async function getSingletoDO (toDoID) {
 
 }
 
-async function populateUpdateForm(event){
+async function populateUpdateForm(event) {
     event.preventDefault();
 
     //go get the single toDo for the id the user selected
@@ -78,7 +80,16 @@ async function populateUpdateForm(event){
     document.querySelector("#title").value = toDos.title;
     document.querySelector("#completed").value = toDos.completed;
     document.querySelector("#id").value = toDos.id;
-    
 
+
+}
+
+const cancelEdit = () => {
+
+    //redirect folks back to the homepage
+   let answer = confirm ("Are you sure you want to cancel?");
+    if (answer){
+        window.location.href = "./index.html"
+}
 }
 
